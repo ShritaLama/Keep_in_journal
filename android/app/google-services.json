@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1083092722181",
+    "project_id": "keepinjournal",
+    "storage_bucket": "keepinjournal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083092722181:android:3426da59bbe731ad03f26c",
+        "android_client_info": {
+          "package_name": "com.example.keepinjournal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1083092722181-pva8aldel07cto3gu81g1kguqtto87cd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.keepinjournal",
+            "certificate_hash": "d0faf1d3aadb208314ab447225e94369258e920f"
+          }
+        },
+        {
+          "client_id": "1083092722181-78ub43v70npq8a9eu97feroark5fqtj3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNJ8btoAJejEmfZ5SbVEg-DjcQYLoD3x0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1083092722181-78ub43v70npq8a9eu97feroark5fqtj3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
