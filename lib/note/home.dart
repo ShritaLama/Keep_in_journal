@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:keepinjournal/note/createnote.dart';
+
+import '../model/usermodel.dart';
 
 class Myhome extends StatefulWidget {
   const Myhome({Key? key}) : super(key: key);
@@ -85,6 +89,7 @@ class _MyhomeState extends State<Myhome> {
               ),
             ),
           ),
+          // categories
           Padding(
             padding:
                 const EdgeInsets.only(left: 30, top: 20, right: 30, bottom: 20),
@@ -103,8 +108,11 @@ class _MyhomeState extends State<Myhome> {
           ),
 
 
+          // noteCard();
+
         ],
-        // categories
+
+
       ),
     )
     );

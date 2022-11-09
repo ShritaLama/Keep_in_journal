@@ -21,21 +21,6 @@ class _MyloginState extends State<Mylogin> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        brightness: Brightness.light,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 15,
-            color: Colors.black,
-          ),
-        ),
-      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
@@ -52,11 +37,14 @@ class _MyloginState extends State<Mylogin> {
                 children: [
                   Column(
                     children: [
-                      Text(
-                        "Login",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      Padding(
+                        padding: const EdgeInsets.only(top: 80),
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                       SizedBox(

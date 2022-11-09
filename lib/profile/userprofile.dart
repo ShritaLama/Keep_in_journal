@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:keepinjournal/model/usermodel.dart';
 import 'package:keepinjournal/profile/accsetting.dart';
 import 'package:keepinjournal/profile/myfav.dart';
 import 'package:keepinjournal/profile/profilemenu.dart';
@@ -12,6 +15,23 @@ class UserProfile extends StatefulWidget {
 }
 
 class _UserProfileState extends State<UserProfile> {
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loginUser = UserModel();
+
+  @override
+  void initState(){
+    super.initState();
+    FirebaseFirestore.instance.collection("users")
+    .doc(user!.uid)
+    .get()
+    .then((value){
+      this.loginUser = UserModel.fromMap(value.data());
+      setState(() {
+
+      });
+    });
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,8 +58,8 @@ class _UserProfileState extends State<UserProfile> {
                 SizedBox(
                   width: 5,
                 ),
-                Text(
-                  'User Name',
+                Text("${loginUser.name}"
+                  ,
                   style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,

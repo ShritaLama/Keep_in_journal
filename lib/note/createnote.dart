@@ -13,9 +13,11 @@ class CreateNote extends StatefulWidget {
 }
 
 class _CreateNoteState extends State<CreateNote> {
+
   int color_id = Random().nextInt(AppStyle.cardsColor.length);
   TextEditingController _titleController = TextEditingController();
   TextEditingController _descController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -27,20 +29,6 @@ class _CreateNoteState extends State<CreateNote> {
             ),
             child: Column(
               children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          size: 20,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ]),
                 Form(
                   child: Column(
                     children: [
@@ -87,40 +75,43 @@ class _CreateNoteState extends State<CreateNote> {
                   children: [
                     ElevatedButton.icon(
                       onPressed: () async {
+                        final firestoreInstance  = FirebaseFirestore.instance;
                         final FirebaseAuth auth = FirebaseAuth.instance;
-                        FirebaseFirestore.instance
-                            .collection("notes")
-                            .doc(auth.currentUser?.uid)
-                            .set({
+                        CollectionReference users = firestoreInstance.collection("users");
+                        users.doc(auth.currentUser?.uid).collection("notes").add({
                           "note_title": _titleController.text,
                           "note_content": _descController.text,
                           "color_id": color_id
-                        }).then((value) {{
-                          if (_titleController.text.isEmpty &&
-                              _descController.text.isEmpty) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Required title and description'),
-                                backgroundColor: Colors.deepPurpleAccent,
-                                duration: Duration(seconds: 2),
-                              ),
-                            );
-                            //Navigator.pop(context);
-                            return;
-                          } else {
-                            print(_titleController.text);
-                            print(_descController.text);
 
-                            _titleController.clear();
-                            _descController.clear();
-                            Navigator.pop(context);
-                            return;
-                          }
-                        }
+                        }).then((value) {
+                          // print(value.id);
+                          Navigator.pop(context);
                         }).catchError((error) =>
-                                print("Failed to add new Note due to $error"));
+                            print("Failed to add new Note due to $error"));
+
+                        // if (_titleController.text.isEmpty &&
+                        //     _descController.text.isEmpty) {
+                        //   ScaffoldMessenger.of(context).showSnackBar(
+                        //     const SnackBar(
+                        //       content: Text('Required title and description'),
+                        //       duration: Duration(seconds: 2),
+                        //     ),
+                        //   );
+                        //   //Navigator.pop(context);
+                        //   return;
+                        // } else {
+                        //   print(_titleController.text);
+                        //   print(_descController.text);
+                        //
+                        //
+                        //   _titleController.clear();
+                        //   _descController.clear();
+                        //   Navigator.pop(context);
+                        //   return;
+                        // }
                       },
-                      icon: Icon(Icons.save_alt_outlined,  size: 20,),
+
+                      icon: Icon(Icons.save_alt_outlined),
                       label: const Text("Save"),
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
@@ -132,10 +123,10 @@ class _CreateNoteState extends State<CreateNote> {
                   ],
                 ),
               ],
+                ),
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }

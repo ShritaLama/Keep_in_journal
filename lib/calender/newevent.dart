@@ -32,20 +32,6 @@ class _NewEventState extends State<NewEvent> {
                   padding: EdgeInsets.all(12.0,),
                   child: Column(
                     children: [
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              icon: Icon(
-                                Icons.arrow_back_ios,
-                                size: 20,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ]),
                       Form(
                         child: Column(
                           children: [

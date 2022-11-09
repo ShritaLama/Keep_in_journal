@@ -17,13 +17,13 @@ Widget noteCard(Function()? onTap, QueryDocumentSnapshot doc) {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            doc["note_title"],
+            doc["title"],
           ),
           SizedBox(
             height: 4.0,
           ),
           Text(
-            doc["note_content"],
+            doc["desc"],
             overflow: TextOverflow.ellipsis,
           ),
         ],
