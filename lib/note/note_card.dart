@@ -18,12 +18,15 @@ Widget noteCard(Function()? onTap, QueryDocumentSnapshot doc) {
         children: [
           Text(
             doc["title"],
+            style: AppStyle.mainTitle,
           ),
           SizedBox(
             height: 4.0,
           ),
+
           Text(
             doc["desc"],
+            style: AppStyle.mainContent,
             overflow: TextOverflow.ellipsis,
           ),
         ],
@@ -31,3 +34,4 @@ Widget noteCard(Function()? onTap, QueryDocumentSnapshot doc) {
     ),
   );
 }
+

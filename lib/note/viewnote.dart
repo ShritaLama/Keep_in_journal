@@ -27,13 +27,13 @@ class _ViewNoteState extends State<ViewNote> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              widget.doc["note_title"],
+              widget.doc["title"],
             ),
             SizedBox(
               height: 4.0,
             ),
             Text(
-              widget.doc["note_content"],
+              widget.doc["desc"],
               overflow: TextOverflow.ellipsis,
             ),
           ],

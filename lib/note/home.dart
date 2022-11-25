@@ -2,7 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:keepinjournal/note/createnote.dart';
+import 'package:keepinjournal/note/note_card.dart';
+import 'package:keepinjournal/note/viewnote.dart';
 
 import '../model/usermodel.dart';
 
@@ -14,8 +17,13 @@ class Myhome extends StatefulWidget {
 }
 
 class _MyhomeState extends State<Myhome> {
+  final firestoreInstance  = FirebaseFirestore.instance;
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  User? user = FirebaseAuth.instance.currentUser;
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         body: SafeArea(
       child: ListView(
@@ -108,11 +116,10 @@ class _MyhomeState extends State<Myhome> {
           ),
 
 
-          // noteCard();
+
+
 
         ],
-
-
       ),
     )
     );

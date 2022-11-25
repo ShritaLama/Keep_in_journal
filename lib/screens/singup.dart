@@ -35,21 +35,6 @@ class _SignupState extends State<Signup> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        brightness: Brightness.light,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 15,
-            color: Colors.black,
-          ),
-        ),
-      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
@@ -66,27 +51,30 @@ class _SignupState extends State<Signup> {
                 child: Form(
                   child: Column(
                     children: [
-                      Column(
-                        children: [
-                          Text(
-                            "Sign Up",
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
+                      Padding(
+                        padding: const EdgeInsets.only(top: 80),
+                        child: Column(
+                          children: [
+                            Text(
+                              "Sign Up",
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Create A New Account",
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.grey.shade700,
-                              fontWeight: FontWeight.bold,
+                            SizedBox(
+                              height: 20,
                             ),
-                          ),
-                        ],
+                            Text(
+                              "Create A New Account",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.grey.shade700,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: 20,
@@ -286,10 +274,10 @@ class _SignupState extends State<Signup> {
           ));
         }
         else{
-          print("Register failed. Please try again.");
+          print("Sign Up failed. Please try again.");
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.purple.shade200,
-            content: Text('Register failed. Please try again.',style: TextStyle(
+            content: Text('Sign Up failed. Please try again.',style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),),

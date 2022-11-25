@@ -35,30 +35,30 @@ class _MyloginState extends State<Mylogin> {
               ),
               Column(
                 children: [
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 80),
-                        child: Text(
+                  Padding(
+                    padding: const EdgeInsets.only(top: 80),
+                    child: Column(
+                      children: [
+                        Text(
                           "Login",
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "Create a new account",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.grey.shade700,
-                          fontWeight: FontWeight.bold,
+                        SizedBox(
+                          height: 20,
                         ),
-                      ),
-                    ],
+                        Text(
+                          "Create a new account",
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.grey.shade700,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 20,

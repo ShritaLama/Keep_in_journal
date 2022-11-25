@@ -79,16 +79,15 @@ class _CreateNoteState extends State<CreateNote> {
                         final FirebaseAuth auth = FirebaseAuth.instance;
                         CollectionReference users = firestoreInstance.collection("users");
                         users.doc(auth.currentUser?.uid).collection("notes").add({
-                          "note_title": _titleController.text,
-                          "note_content": _descController.text,
+                          "title": _titleController.text,
+                          "desc": _descController.text,
                           "color_id": color_id
 
                         }).then((value) {
-                          // print(value.id);
+                          print(value.id);
                           Navigator.pop(context);
                         }).catchError((error) =>
                             print("Failed to add new Note due to $error"));
-
                         // if (_titleController.text.isEmpty &&
                         //     _descController.text.isEmpty) {
                         //   ScaffoldMessenger.of(context).showSnackBar(
