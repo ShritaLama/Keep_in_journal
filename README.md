@@ -16,13 +16,4 @@ A new Flutter project. KeepInJournal is a simple productivity and journaling app
 - Flutter
 - Dart
 
-## Getting Started
 
-- Flutter
-- Dart
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 6c5679b6882de5f353a2335cedf18e212bbae69f
